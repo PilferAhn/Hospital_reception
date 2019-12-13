@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include "header.html" ignore missing %}
+    <title>
+        {% block title %}Patients{% endblock %}
+    </title>
+    {% block head %}
+    {% endblock %}
+</head>
+<body>
+    {% block content %}
+
+        {% include "nav.html" ignore missing %}
+        <div class="container-fluid contentsGap">
+            <div class="row">
+                <div class="col-md-4 col-md-offset-2">
+                        <span class="fLetterEffect">P</span><span class="headingFont">atient</span><br />
+                        <span class="fLetterEffect">&emsp;&emsp;&emsp;&emsp;M</span><span class="headingFont">anagement</span><br />
+                        <span class="fLetterEffect">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;S</span><span class="headingFont">ystem</span><br />
+                </div>
+
+                <div class="col-md-4">
+                    <div class="row" style="margin-top: 100px">
+                        <div class="col-md-4 col-md-offset-8">
+                            <h1>{{ error_message }}</h1>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    {% endblock %}
+
+    <div id="footer">
+        {% include "footer.html" ignore missing %}
+        {% block footer %}
+        {% endblock %}
+    </div>
+
+</body>
+</html>

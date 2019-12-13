@@ -1,0 +1,12 @@
+<div class="form-group">
+    <label for="patient_email" class="bodyFont">Enter Patient Email</label>&emsp;<span class="reqSections">*</span><br />
+    <input type="text" id="patient_email" name="patient_email" placeholder="patient@maps.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required />
+</div><br /><br />
+<div class="form-group">
+    <label for="doctor_name" class="bodyFont">Select a Doctor</label>&emsp;<span class="reqSections">*</span><br />
+    <select class="form-control" name="doctor_name" id="doctor_name">
+        {% for doctor in doctors %}
+        <option>{{ doctor }}</option>
+        {% endfor %}
+    </select>
+</div><br /><br />

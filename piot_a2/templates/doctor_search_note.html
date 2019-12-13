@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% include "header.html" ignore missing %}
+    <title>
+        {% block title %}Patients{% endblock %}
+    </title>
+    {% block head %}
+    {% endblock %}
+</head>
+
+<body>
+    {% block content %}
+
+    {% include "nav.html" ignore missing %}
+    <div class="container-fluid contentsGap">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-2">
+                <span class="fLetterEffect">P</span><span class="headingFont">atient</span><br />
+                <span class="fLetterEffect">&emsp;&emsp;&emsp;&emsp;A</span><span class="headingFont">ppointment</span><br />
+                <span class="fLetterEffect">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;C</span><span class="headingFont">heck</span><br />
+            </div>
+            <div class="col-md-4 col-md-offset-2">
+                <!-- <h1 class="subheadingFont">Doctor Appointment Confirmation</h1><br /> -->
+                <form class="form-inline" action="{{ url_for('doctor_search_note') }}" method="POST">
+
+                    <div class="form-group">
+                        <label for="fname" class="bodyFont">First Name</label><br />
+                        <!-- <input id="fname" name="first_name" type="hidden" class="form-control" /> -->
+                        <label id="fname" name="first_name" class="form-control">{{ patient.first_name }}</label>
+                    </div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+
+                    <div class="form-group">
+                        <label for="lname" class="bodyFont">Last Name</label><br />
+                        <!-- <input id="lname" name="last_name" type="hidden" class="form-control" /> -->
+                        <label id="lname" name="last_name" class="form-control">{{ patient.last_name }}</label>
+                    </div><br /><br />
+
+                    <div class="form-group">
+                        <label for="mob" class="bodyFont">Mobile Number</label><br />
+                        <!-- <input id="mob" name="mobile_num" type="hidden" class="form-control" /> -->
+                        <label id="mob" name="mobile_num" class="form-control">{{ patient.mobile_num }}</label>
+                    </div>&emsp;&emsp;&emsp;&emsp;&emsp;
+
+                    <div class="form-group">
+                        <label for="email" class="bodyFont">Email</label><br />
+                        <!-- <input id="email" name="email" type="hidden" class="form-control" /> -->
+                        <label id="email" name="email" class="form-control">{{ patient.email }}</label>
+                    </div><br /><br />
+
+                    <div class="form-group">
+                        <label for="dob" class="bodyFont">DOB</label><br />
+                        <!-- <input type="hidden" name="dob" id="dob"> -->
+                        <label id="dob" name="dob" class="form-control">{{ patient.dob }}</label>
+                    </div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+
+                    <div class="form-group">
+                        <label for="gender" class="bodyFont">Gender</label><br />
+                        <!-- <input class="form-control" name="gender" id="gender" type="hidden" /> -->
+                        <label id="gender" name="gender" class="form-control">{{ patient.gender }}</label>
+                    </div><br /><br />
+
+                    <div class="form-group">
+                        <label for="medical_history" class="bodyFont">Medical History</label><br />
+                        <!-- <input type="hidden" id="medical_history" name="medical_history" /> -->
+                        <label id="medical_history" name="medical_history" class="form-control">{{ patient.medical_history }}</label>
+                    </div><br /><br />
+
+                    <div  class="formp-grou">
+                        <label for="medical_note" class="bodyFont">Medical Note</label>&emsp;<span class="reqSections">*</span><br />
+                        <textarea id="medical_note" name="medical_note" rows="5" cols="60" required></textarea>
+                    </div><br />
+                    
+                    <button type="submit" name="doctor_add_note_action" value="submit" class="btn btn-primary btn-lg smBtnLayout">Submit</button>&emsp;&emsp;
+                    <button type="submit" name="doctor_add_note_action" value="back" class="btn btn-lg smBtnLayout" style="color:#428bca;" formnovalidate>Cancel</button>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    {% endblock %}
+
+    <div id="footer">
+        {% include "footer.html" ignore missing %}
+        {% block footer %}
+        {% endblock %}
+    </div>
+
+</body>
+
+</html>

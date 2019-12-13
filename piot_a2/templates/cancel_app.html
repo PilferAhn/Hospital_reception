@@ -1,0 +1,6 @@
+<div class="form-group">
+    <label for="scheduled" class="bodyFont">Scheduled Time Slots</label><br />
+    {% for appointment in appointments %}
+    <input id="scheduled" type="radio" name="sel_appoint" value="{{ appointment['id'] }}" /> <label style="color:white" for="scheduled">{{ appointment['start']['dateTime'] }}</label><br>
+    {% endfor %}
+</div><br /><br />

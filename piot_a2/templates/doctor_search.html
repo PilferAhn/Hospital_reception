@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% include "header.html" ignore missing %}
+    <title>
+        {% block title %}Patients{% endblock %}
+    </title>
+    {% block head %}
+    {% endblock %}
+</head>
+
+<body>
+    {% block content %}
+
+    {% include "nav.html" ignore missing %}
+    <div class="container-fluid contentsGap">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-2">
+                <span class="fLetterEffect">P</span><span class="headingFont">atient</span><br />
+                <span class="fLetterEffect">&emsp;&emsp;&emsp;&emsp;A</span><span class="headingFont">ppointment</span><br />
+                <span class="fLetterEffect">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;M</span><span class="headingFont">anagement</span><br />
+            </div>
+            <div class="col-md-4 col-md-offset-2">
+                <form class="form-inline" action="{{ url_for('doctor_search') }}" method="POST">
+                    {% if booking_exist == "True" %}
+                        <div class="form-group">
+                            <label for="patient_email" class="bodyFont">Enter Patient Email</label>&emsp;<span class="reqSections">*</span><br />
+                            <input type="text" id="patient_email" name="patient_email" placeholder="patient@maps.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required />
+                        </div><br /><br />
+
+                        <button type="submit" name="doctor_search_action" value="search" class="btn btn-primary btn-lg smBtnLayout">Search</button>&emsp;&emsp;
+                        <button type="submit" name="doctor_search_action" value="back" class="btn btn-lg smBtnLayout" style="color:#428bca;" formnovalidate>Cancel</button>
+                    {% else %}
+                        <h1>{{ msg }}</h1>
+                        <button type="submit" name="doctor_search_action" value="invalid" class="btn btn-primary btn-lg smBtnLayout">Go Back</button>
+                    {% endif %}    
+                </form>
+            </div>
+        </div>
+        {% endblock %}
+
+        <div id="footer">
+            {% include "footer.html" ignore missing %}
+            {% block footer %}
+            {% endblock %}
+        </div>
+    </div>
+</body>
+
+</html>

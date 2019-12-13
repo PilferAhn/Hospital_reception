@@ -1,0 +1,14 @@
+<div class="form-group">
+    <label for="bookingType" class="bodyFont">Type of Appointment</label>&emsp;<span class="reqSections">*</span><br />
+    <select class="form-control" name="summary" id="summary">
+        <option>General Appointment</option>
+        <option>Follow-up Appointment</option>
+        <option>Regular Review</option>
+    </select>
+</div><br /><br />
+<div class="form-group">
+    <label for="app_slot" class="bodyFont">Available Time Slots</label>&emsp;<span class="reqSections">*</span><br />
+    {% for appointment in appointments %}
+    <input style="color:white" type="radio" name="app_slot" value="{{ appointment['id'] }},{{ appointment['start']['dateTime'] }},{{ appointment['end']['dateTime'] }},{{ doctor_id }},{{ patient_id }}"><label style="color:white" for="scheduled"> {{ appointment['start']['dateTime'] }}</label><br>
+    {% endfor %}
+</div><br /><br />

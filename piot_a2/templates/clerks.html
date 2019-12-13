@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include "header.html" ignore missing %}
+    <title>
+        {% block title %}Clerks{% endblock %}
+    </title>
+    {% block head %}
+    {% endblock %}
+</head>
+<body>
+    {% block content %}
+
+        {% include "nav.html" ignore missing %}
+
+        <div class="container-fluid contentsGap">
+            <div class="row">
+                <div class="col-md-4 col-md-offset-2">
+                        <span class="fLetterEffect">C</span><span class="headingFont">lerks</span><br />
+                        <span class="fLetterEffect">&emsp;&emsp;&emsp;&emsp;M</span><span class="headingFont">anagement</span><br />
+                        <span class="fLetterEffect">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;S</span><span class="headingFont">ystem</span><br />
+                </div>
+
+
+                <div class="col-md-4">
+                    <div class="row" style="margin-top: 100px">
+                        <div class="col-md-4 col-md-offset-8">
+                            <a href="{{ url_for('clerk_book') }}" class="btn btn-primary btn-lg btnLayout" role="button">Add Appointment</a><br /><br />
+                            <a href="{{ url_for('clerk_cancel') }}" class="btn btn-primary btn-lg btnLayout" role="button">Delete Appointment</a><br /><br />
+                            <a href="{{ url_for('clerk_list') }}" class="btn btn-primary btn-lg btnLayout" role="button">List Appointments</a><br /><br />
+                            <a href="" class="btn btn-primary btn-lg btnLayout" role="button">Schedule Analysis</a><br /><br />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    {% endblock %}
+
+    <div id="footer">
+        {% include "footer.html" ignore missing %}
+        {% block footer %}
+        {% endblock %}
+    </div>
+
+</body>
+</html>

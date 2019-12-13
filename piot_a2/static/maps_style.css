@@ -1,0 +1,157 @@
+/* Acknowledgements
+The web interface background image has been used only for educational purposes
+https://www.rts.ch/info/suisse/9220644-la-consultation-medicale-de-base-est-desormais-limitee-a-20-minutes-.html
+*/
+
+
+/* html and footer styling for sticking footer at the bottom */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+/* Background Image effect */
+body {
+    background: linear-gradient(
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)
+    ),
+    url(maps_bg.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    margin: 0 0 200px;
+}
+
+
+/* Overlay navbar style */
+.overlay {
+    height: 0%;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #333333;
+    opacity: 0.9;
+    overflow-y: hidden;
+    transition: 0.5s;
+}
+
+.overlay-content {
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: darkgray;
+    display: block;
+    transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+    color: #f1f1f1;
+}
+
+.overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+}
+
+@media screen and (max-height: 450px) {
+    .overlay {overflow-y: auto;}
+    .overlay a {font-size: 20px}
+    .overlay .closebtn {
+        font-size: 40px;
+        top: 15px;
+        right: 35px;
+    }
+}
+
+/* Font declaration */
+.headingFont {
+    font-size:50px;
+    color:white;
+    /* font-family: 'Merriweather', serif; */
+    font-family: 'Fjalla One', sans-serif;
+    /* font-family: 'Libre Franklin', sans-serif; */
+}
+
+.subheadingFont {
+    font-size:35px;
+    color:whitesmoke;
+    /* font-family: 'Merriweather', serif; */
+    font-family: 'Fjalla One', sans-serif;
+    /* font-family: 'Libre Franklin', sans-serif; */
+}
+
+.bodyFont {
+    font-size: 20px;
+    color:ghostwhite;
+    /* font-family: 'Merriweather', serif; */
+    font-family: 'Fjalla One', sans-serif;
+}
+
+.indexTitleLocation {
+    margin-top: 800px;
+}
+
+.contentsGap {
+    margin: 30px 0px 30px 0;
+}
+
+.fLetterEffect {
+    font-size: 80px;
+    color: #7ABDFF;
+    /* font-family: 'Alfa Slab One', cursive; */
+    font-family: 'Fjalla One', sans-serif;
+    /* font-family: 'Libre Franklin', sans-serif; */
+}
+
+#footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    overflow:hidden;
+    color: white;
+    font-size: 15px;
+    /* background-color: darkgray; */
+}
+
+.imgModif {
+    width: 550px;
+    height: 350px;
+    object-fit: cover;
+}
+
+.formType{
+    display:none;
+    clear:both; 
+}
+
+.btnLayout {
+    width: 250px;
+    height: 50px;
+    text-align: center;
+}
+
+.smBtnLayout {
+    width: 100px;
+    height: 50px;
+    text-align: center;
+}
+
+.reqSections {
+    color: red;
+    font-size: 20px;
+}
