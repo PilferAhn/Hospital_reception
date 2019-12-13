@@ -1,0 +1,8 @@
+{
+    "MAPSDB": {
+      "USER": "root",
+      "PASS": "",
+      "HOST": "35.189.1.72",
+      "DBNAME": "mapsdb"
+    }
+}

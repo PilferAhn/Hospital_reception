@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+service PatientRecogniser {
+
+	rpc VerifyPatient (PatientDetails) returns (Empty) {}
+
+	rpc notifyDoctor (Empty) returns (PatientDetails) {}
+
+	rpc clearHistory (PatientDetails) returns (Empty) {}
+}
+
+message Empty {}
+
+message PatientDetails {
+	string name = 1;
+	string feeling = 2;
+}

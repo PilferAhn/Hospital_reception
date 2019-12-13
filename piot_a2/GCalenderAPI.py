@@ -1,50 +1,39 @@
+"""
+This file includes functionality for using google calendars in the application.
+"""
+
 from __future__ import print_function
 from datetime import datetime, timedelta
-from googleapiclient.discovery import build
-from httplib2 import Http
-from oauth2client import file, client, tools
 from flask import request
-import dateutil.parser
 import PatientAPI
 import DoctorAPI
+import MapsDB
 
 # If modifying these scopes, delete the file token.json.
 SCOPES = 'https://www.googleapis.com/auth/calendar'
 MAX_RESULTS = 50
 APPOINTMENT_DURATION = 30
 
-def get_service():
-    """
-    get Google calender API service
-    """
-    store = file.Storage('token.json')
-    creds = store.get()
-    if not creds or creds.invalid:
-        flow = client.flow_from_clientsecrets('credentials.json', SCOPES)
-        creds = tools.run_flow(flow, store)
-    service = build('calendar', 'v3', http=creds.authorize(Http()))
-    return service
-
-
 def create_calender(doctor_name):
     """
-    create a secondary calender for a newdoctor that is registered and 
-    return the newly created calender id
+    Create a secondary calender for a newdoctor that is registered and 
+    return the newly created calender id.
     """
     calendar = {
         'summary': doctor_name,
         'timeZone': 'Australia/Melbourne'
     }
-    service = get_service()
+    service = MapsDB.get_service(SCOPES)
     new_calendar = service.calendars().insert(body=calendar).execute()
     return new_calendar['id']
 
 
 def add_appointment(calender_id='primary'):
     """
-    add an appointment to the calender 
+    This function accepts a calender id in and creates an event 
+    to that calendar using a HTML form to get the event information.
     """
-    service = get_service()
+    service = MapsDB.get_service(SCOPES)
 
     summary = request.form['summary']
     app = request.form['app_slot']
@@ -88,9 +77,10 @@ def add_appointment(calender_id='primary'):
 
 def add_available_time(doctor, start_datetime):
     """
-    add available time slot to doctor schedule
+    This function accepts a doctor and start time for an available time slot 
+    and adds the time slot to the doctors google calendar.
     """
-    service = get_service()
+    service = MapsDB.get_service(SCOPES)
 
     start = datetime.strptime(start_datetime, '%Y-%m-%dT%H:%M:%S')
     end_datetime = start + timedelta(minutes=APPOINTMENT_DURATION)
@@ -118,64 +108,76 @@ def add_available_time(doctor, start_datetime):
 
     event = service.events().insert(calendarId=doctor.calender_id, body=event).execute()
 
-# doctor = DoctorAPI.get_doctor_by_id(2)
-# add_available_time(doctor, '2018-09-28T10:00:00')
 
 def cancel_appointment(app_id, calenderId='primary'):
     """
-    delete specified calender event
+    This function accepts an appointment id and a calendar id and 
+    will delete the event in the calendar relating to the id provided.
     """
-    service = get_service()
-    # when event is successfully deleted, empty response is returned
+    service = MapsDB.get_service(SCOPES)
     service.events().delete(calendarId=calenderId,
                             eventId=app_id).execute()
-    
 
 
 def get_appointment_list(doctor_email=None, patient_email=None, calender_id='primary'):
     """
-    get upcoming 20 calender events based on doctor email or patient email
+    This function accepts a doctor email, patient email and 
+    calendar id an will return the next 20 upcoming calendar events that 
+    contain both the doctor and patient email.
     """
-    service = get_service()
+    service = MapsDB.get_service(SCOPES)
     now = datetime.utcnow().isoformat() + 'Z'
     events_result = []
-    # retrieve appointment details for all apointments
+    # retrieve appointment details for all appointments
     if doctor_email is None and patient_email is None:
         events_result = service.events().list(calendarId=calender_id, timeMin=now,
-                                          maxResults=MAX_RESULTS, singleEvents=True,
-                                          orderBy='startTime').execute()
-    # retrieve appointment details for specified doctor or patient                                      
+                                              maxResults=MAX_RESULTS, singleEvents=True,
+                                              orderBy='startTime').execute()
+    # retrieve appointment details for specified doctor or patient
     else:
         search_property = 'doctor_email' if doctor_email is not None else 'patient_email'
         search_email = doctor_email if doctor_email is not None else patient_email
         events_result = service.events().list(calendarId=calender_id, timeMin=now,
-                                            maxResults=MAX_RESULTS, singleEvents=True,
-                                            orderBy='startTime',
-                                            privateExtendedProperty=search_property +
-                                            ' = ' + search_email).execute()
+                                              maxResults=MAX_RESULTS, singleEvents=True,
+                                              orderBy='startTime',
+                                              privateExtendedProperty=search_property +
+                                              ' = ' + search_email).execute()
 
     events = events_result.get('items', [])
     return events
-    # if not events:
-    #     print('No upcoming events found.')
-    # for event in events:
-    #     start = event['start'].get('dateTime', event['start'].get('date'))
-    #     end = event['end'].get('dateTime', event['end'].get('date'))
-    #     start_time = dateutil.parser.parse(event['start']['dateTime']).strftime("%Y-%m-%dT%H:%M:%S")
-    #     print(start_time, event['summary'])
+
+
+def get_past_appointments(doctor_email=None, calender_id='primary'):
+    """
+    get appointments for specified doctor in the primary calendar for the past week
+    """
+    service = MapsDB.get_service(SCOPES)
+    now = datetime.utcnow().isoformat() + 'Z'
+    time_now = now.split('.')[0]
+    time_now = datetime.strptime(time_now, '%Y-%m-%dT%H:%M:%S')
+    last_week = time_now - timedelta(weeks=1)
+    last_week = last_week.isoformat() + 'Z'
+    events_result = []
+    events_result = service.events().list(calendarId=calender_id, timeMin=last_week,
+                                          timeMax=now, maxResults=MAX_RESULTS,
+                                          singleEvents=True, orderBy='startTime',
+                                          privateExtendedProperty='doctor_email = ' 
+                                          + doctor_email).execute()
+
+    events = events_result.get('items', [])
+    return events
+
 
 def get_appointment_by_id(app_id):
-    service = get_service()
+    """
+    This function accepts an appointment id and will 
+    delete the appointment that related to the provided id.
+    """
+    service = MapsDB.get_service(SCOPES)
     event = service.events().get(calendarId='primary', eventId=app_id).execute()
     return event
 
-# add_appointment('liz@mail.com', 'mail@mail.com')
 
-# app = get_appointment_list(patient_email='mail@mail')
-# for appo in app:
-#     print(appo['start']['dateTime'])
-# cancel_appointment()
-"""
-events = get_appointment_list(patient_email='lucy@mail') get list of event patient is attending
-delete_appointment(events[0]['id']) to delete single event returned
-"""
+events = get_past_appointments(doctor_email='liz@mail.com')
+for event in events:
+    cancel_appointment(event['id'])

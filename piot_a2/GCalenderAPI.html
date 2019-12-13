@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module GCalenderAPI</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>GCalenderAPI</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/pi/Assignment2/GCalenderAPI.py">/home/pi/Assignment2/GCalenderAPI.py</a></font></td></tr></table>
+    <p><tt>This&nbsp;file&nbsp;includes&nbsp;functionality&nbsp;for&nbsp;using&nbsp;google&nbsp;calendars&nbsp;in&nbsp;the&nbsp;application.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="DoctorAPI.html">DoctorAPI</a><br>
+</td><td width="25%" valign=top><a href="MapsDB.html">MapsDB</a><br>
+</td><td width="25%" valign=top><a href="PatientAPI.html">PatientAPI</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-add_appointment"><strong>add_appointment</strong></a>(calender_id='primary')</dt><dd><tt>This&nbsp;function&nbsp;accepts&nbsp;a&nbsp;calender&nbsp;id&nbsp;in&nbsp;and&nbsp;creates&nbsp;an&nbsp;event&nbsp;<br>
+to&nbsp;that&nbsp;calendar&nbsp;using&nbsp;a&nbsp;HTML&nbsp;form&nbsp;to&nbsp;get&nbsp;the&nbsp;event&nbsp;information.</tt></dd></dl>
+ <dl><dt><a name="-add_available_time"><strong>add_available_time</strong></a>(doctor, start_datetime)</dt><dd><tt>This&nbsp;function&nbsp;accepts&nbsp;a&nbsp;doctor&nbsp;and&nbsp;start&nbsp;time&nbsp;for&nbsp;an&nbsp;available&nbsp;time&nbsp;slot&nbsp;<br>
+and&nbsp;adds&nbsp;the&nbsp;time&nbsp;slot&nbsp;to&nbsp;the&nbsp;doctors&nbsp;google&nbsp;calendar.</tt></dd></dl>
+ <dl><dt><a name="-cancel_appointment"><strong>cancel_appointment</strong></a>(app_id, calenderId='primary')</dt><dd><tt>This&nbsp;function&nbsp;accepts&nbsp;an&nbsp;appointment&nbsp;id&nbsp;and&nbsp;a&nbsp;calendar&nbsp;id&nbsp;and&nbsp;<br>
+will&nbsp;delete&nbsp;the&nbsp;event&nbsp;in&nbsp;the&nbsp;calendar&nbsp;relating&nbsp;to&nbsp;the&nbsp;id&nbsp;provided.</tt></dd></dl>
+ <dl><dt><a name="-create_calender"><strong>create_calender</strong></a>(doctor_name)</dt><dd><tt>Create&nbsp;a&nbsp;secondary&nbsp;calender&nbsp;for&nbsp;a&nbsp;newdoctor&nbsp;that&nbsp;is&nbsp;registered&nbsp;and&nbsp;<br>
+return&nbsp;the&nbsp;newly&nbsp;created&nbsp;calender&nbsp;id.</tt></dd></dl>
+ <dl><dt><a name="-get_appointment_by_id"><strong>get_appointment_by_id</strong></a>(app_id)</dt><dd><tt>This&nbsp;function&nbsp;accepts&nbsp;an&nbsp;appointment&nbsp;id&nbsp;and&nbsp;will&nbsp;<br>
+delete&nbsp;the&nbsp;appointment&nbsp;that&nbsp;related&nbsp;to&nbsp;the&nbsp;provided&nbsp;id.</tt></dd></dl>
+ <dl><dt><a name="-get_appointment_list"><strong>get_appointment_list</strong></a>(doctor_email=None, patient_email=None, calender_id='primary')</dt><dd><tt>This&nbsp;function&nbsp;accepts&nbsp;a&nbsp;doctor&nbsp;email,&nbsp;patient&nbsp;email&nbsp;and&nbsp;<br>
+calendar&nbsp;id&nbsp;an&nbsp;will&nbsp;return&nbsp;the&nbsp;next&nbsp;20&nbsp;upcoming&nbsp;calendar&nbsp;events&nbsp;that&nbsp;<br>
+contain&nbsp;both&nbsp;the&nbsp;doctor&nbsp;and&nbsp;patient&nbsp;email.</tt></dd></dl>
+ <dl><dt><a name="-get_past_appointments"><strong>get_past_appointments</strong></a>(doctor_email=None, calender_id='primary')</dt><dd><tt>get&nbsp;appointments&nbsp;for&nbsp;specified&nbsp;doctor&nbsp;in&nbsp;the&nbsp;primary&nbsp;calendar&nbsp;for&nbsp;the&nbsp;past&nbsp;week</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>APPOINTMENT_DURATION</strong> = 30<br>
+<strong>MAX_RESULTS</strong> = 50<br>
+<strong>SCOPES</strong> = 'https://www.googleapis.com/auth/calendar'<br>
+<strong>events</strong> = []<br>
+<strong>print_function</strong> = _Feature((2, 6, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 65536)<br>
+<strong>request</strong> = &lt;LocalProxy unbound&gt;</td></tr></table>
+</body></html>

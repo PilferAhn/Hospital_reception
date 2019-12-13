@@ -1,4 +1,4 @@
-About this project
-==================
+About MAPS
+==========
 
-MAPS was built to support better interactions and treatments amongst patients, doctors, and medical clerks.
+MAPS is an intelligent application where patients, doctors, and clerks are closely connected each other for convenient and flexible communications. Consequenlty, this would help users better services.

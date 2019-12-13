@@ -8,9 +8,8 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>maps</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/Users/allencho/Python_Projects/iot/piot_a2/maps.py">/Users/allencho/Python_Projects/iot/piot_a2/maps.py</a></font></td></tr></table>
-    <p><tt>#&nbsp;Import&nbsp;packages&nbsp;and&nbsp;other&nbsp;class&nbsp;libraries<br>
-#&nbsp;import&nbsp;sqlite3</tt></p>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/pi/Assignment2/maps.py">/home/pi/Assignment2/maps.py</a></font></td></tr></table>
+    <p><tt>This&nbsp;file&nbsp;implements&nbsp;the&nbsp;functionality&nbsp;of&nbsp;the&nbsp;website&nbsp;and&nbsp;controls&nbsp;the&nbsp;flow&nbsp;of&nbsp;user&nbsp;interaction.</tt></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#aa55cc">
@@ -18,18 +17,58 @@
 <font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
     
 <tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="os.html">os</a><br>
-</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="AppointmentAPI.html">AppointmentAPI</a><br>
+<a href="DoctorAPI.html">DoctorAPI</a><br>
+</td><td width="25%" valign=top><a href="GCalenderAPI.html">GCalenderAPI</a><br>
+<a href="MapsDB.html">MapsDB</a><br>
+</td><td width="25%" valign=top><a href="PatientAPI.html">PatientAPI</a><br>
+<a href="AssistantPi.html">AssistantPi</a><br>
+</td><td width="25%" valign=top><a href="os.html">os</a><br>
+<a href="Utility.html">Utility</a><br>
+</td></tr></table></td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#eeaa77">
 <td colspan=3 valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
     
 <tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><dl><dt><a name="-clerks"><strong>clerks</strong></a>()</dt></dl>
- <dl><dt><a name="-doctors"><strong>doctors</strong></a>()</dt></dl>
- <dl><dt><a name="-index"><strong>index</strong></a>()</dt><dd><tt>#&nbsp;Route&nbsp;pages&nbsp;based&nbsp;on&nbsp;purposes</tt></dd></dl>
- <dl><dt><a name="-patients"><strong>patients</strong></a>()</dt></dl>
+<td width="100%"><dl><dt><a name="-clerk_book"><strong>clerk_book</strong></a>()</dt><dd><tt>This&nbsp;function&nbsp;puts&nbsp;the&nbsp;user&nbsp;on&nbsp;the&nbsp;clerks/book&nbsp;page&nbsp;which&nbsp;allows&nbsp;a&nbsp;clerk&nbsp;to&nbsp;enter&nbsp;their&nbsp;email&nbsp;and&nbsp;<br>
+select&nbsp;a&nbsp;doctor&nbsp;to&nbsp;book&nbsp;an&nbsp;appointment&nbsp;with.</tt></dd></dl>
+ <dl><dt><a name="-clerk_book_app"><strong>clerk_book_app</strong></a>()</dt><dd><tt>This&nbsp;function&nbsp;places&nbsp;the&nbsp;user&nbsp;on&nbsp;the&nbsp;clerks/book/appointment&nbsp;page&nbsp;and&nbsp;allows&nbsp;a&nbsp;clerk&nbsp;to&nbsp;selects&nbsp;from&nbsp;a<br>
+list&nbsp;of&nbsp;appointment&nbsp;slots&nbsp;available&nbsp;for&nbsp;the&nbsp;selected&nbsp;doctor&nbsp;and&nbsp;then&nbsp;make&nbsp;appointment&nbsp;booking&nbsp;with&nbsp;that&nbsp;doctor</tt></dd></dl>
+ <dl><dt><a name="-clerk_cancel"><strong>clerk_cancel</strong></a>()</dt><dd><tt>This&nbsp;function&nbsp;places&nbsp;the&nbsp;user&nbsp;on&nbsp;the&nbsp;clerks/cancel&nbsp;page&nbsp;which&nbsp;will&nbsp;check&nbsp;if&nbsp;the&nbsp;booking&nbsp;exists&nbsp;and&nbsp;then&nbsp;cancel&nbsp;it.</tt></dd></dl>
+ <dl><dt><a name="-clerk_cancel_app"><strong>clerk_cancel_app</strong></a>()</dt><dd><tt>This&nbsp;function&nbsp;places&nbsp;the&nbsp;user&nbsp;on&nbsp;the&nbsp;clerks/cancel/select_appointment&nbsp;which&nbsp;allows&nbsp;the&nbsp;clerk&nbsp;to&nbsp;select&nbsp;an&nbsp;appointment<br>
+and&nbsp;cancel&nbsp;it&nbsp;if&nbsp;necessary.</tt></dd></dl>
+ <dl><dt><a name="-clerk_list"><strong>clerk_list</strong></a>()</dt><dd><tt>This&nbsp;function&nbsp;places&nbsp;the&nbsp;user&nbsp;on&nbsp;the&nbsp;clerks/list&nbsp;page&nbsp;which&nbsp;allows&nbsp;a&nbsp;clerk&nbsp;to&nbsp;display&nbsp;a&nbsp;list&nbsp;of&nbsp;doctors.</tt></dd></dl>
+ <dl><dt><a name="-clerk_list_app"><strong>clerk_list_app</strong></a>()</dt><dd><tt>This&nbsp;function&nbsp;places&nbsp;the&nbsp;user&nbsp;on&nbsp;the&nbsp;clerks/list/appointment&nbsp;page&nbsp;which&nbsp;will&nbsp;display&nbsp;a&nbsp;list&nbsp;of&nbsp;appointments&nbsp;based&nbsp;on<br>
+the&nbsp;doctors&nbsp;name&nbsp;entered&nbsp;in&nbsp;the&nbsp;previous&nbsp;page.</tt></dd></dl>
+ <dl><dt><a name="-clerk_view"><strong>clerk_view</strong></a>()</dt><dd><tt>This&nbsp;function&nbsp;places&nbsp;the&nbsp;user&nbsp;on&nbsp;the&nbsp;clerks/view&nbsp;page&nbsp;which&nbsp;allows&nbsp;a&nbsp;clerk&nbsp;to&nbsp;view&nbsp;a&nbsp;doctor's&nbsp;appointments.</tt></dd></dl>
+ <dl><dt><a name="-clerks"><strong>clerks</strong></a>()</dt><dd><tt>This&nbsp;function&nbsp;places&nbsp;the&nbsp;user&nbsp;on&nbsp;the&nbsp;clerks&nbsp;main&nbsp;page.</tt></dd></dl>
+ <dl><dt><a name="-doctor_book"><strong>doctor_book</strong></a>()</dt><dd><tt>This&nbsp;function&nbsp;places&nbsp;the&nbsp;user&nbsp;on&nbsp;the&nbsp;doctors/book/appointment&nbsp;page&nbsp;and&nbsp;will&nbsp;get&nbsp;the&nbsp;doctor's&nbsp;email&nbsp;from&nbsp;the&nbsp;POST&nbsp;method&nbsp;in<br>
+the&nbsp;doctors/book&nbsp;page&nbsp;to&nbsp;allow&nbsp;a&nbsp;doctor&nbsp;to&nbsp;add&nbsp;time&nbsp;slots&nbsp;in&nbsp;which&nbsp;they&nbsp;are&nbsp;available&nbsp;to&nbsp;see&nbsp;a&nbsp;patient.</tt></dd></dl>
+ <dl><dt><a name="-doctor_book_auth"><strong>doctor_book_auth</strong></a>()</dt><dd><tt>This&nbsp;function&nbsp;directs&nbsp;the&nbsp;user&nbsp;to&nbsp;the&nbsp;doctors/book&nbsp;page&nbsp;which&nbsp;allows&nbsp;the&nbsp;doctor&nbsp;to&nbsp;enter&nbsp;their&nbsp;email&nbsp;and&nbsp;then&nbsp;POST's<br>
+the&nbsp;entered&nbsp;email&nbsp;to&nbsp;the&nbsp;book/appointment&nbsp;page.</tt></dd></dl>
+ <dl><dt><a name="-doctor_record"><strong>doctor_record</strong></a>()</dt><dd><tt>This&nbsp;function&nbsp;will&nbsp;place&nbsp;the&nbsp;user&nbsp;on&nbsp;the&nbsp;doctors/record&nbsp;page&nbsp;and&nbsp;will&nbsp;place&nbsp;the&nbsp;user&nbsp;on&nbsp;the&nbsp;doctor_search_note&nbsp;and&nbsp;POSTing&nbsp;the&nbsp;input&nbsp;medical<br>
+note&nbsp;and&nbsp;the&nbsp;doctor_id&nbsp;to&nbsp;the&nbsp;next&nbsp;page.</tt></dd></dl>
+ <dl><dt><a name="-doctor_reg"><strong>doctor_reg</strong></a>()</dt><dd><tt>This&nbsp;function&nbsp;places&nbsp;the&nbsp;user&nbsp;on&nbsp;the&nbsp;doctor&nbsp;registation&nbsp;page&nbsp;where&nbsp;a&nbsp;doctor&nbsp;and&nbsp;fill&nbsp;out&nbsp;a&nbsp;form&nbsp;in&nbsp;order&nbsp;to&nbsp;submit<br>
+their&nbsp;data&nbsp;to&nbsp;the&nbsp;Doctors&nbsp;table&nbsp;and&nbsp;then&nbsp;create&nbsp;a&nbsp;calendar.</tt></dd></dl>
+ <dl><dt><a name="-doctor_search"><strong>doctor_search</strong></a>()</dt><dd><tt>This&nbsp;function&nbsp;will&nbsp;place&nbsp;the&nbsp;user&nbsp;on&nbsp;the&nbsp;doctors/search&nbsp;page&nbsp;and&nbsp;will&nbsp;ask&nbsp;the&nbsp;user&nbsp;to&nbsp;enter&nbsp;a&nbsp;patients&nbsp;email&nbsp;which&nbsp;will<br>
+then&nbsp;be&nbsp;posted&nbsp;to&nbsp;the&nbsp;doctors/search/note&nbsp;page.</tt></dd></dl>
+ <dl><dt><a name="-doctor_search_note"><strong>doctor_search_note</strong></a>()</dt><dd><tt>This&nbsp;function&nbsp;will&nbsp;place&nbsp;the&nbsp;user&nbsp;on&nbsp;the&nbsp;doctor/search/note&nbsp;page.&nbsp;This&nbsp;page&nbsp;will&nbsp;get&nbsp;the&nbsp;email&nbsp;POSTed&nbsp;by&nbsp;the&nbsp;previous&nbsp;<br>
+page&nbsp;and&nbsp;then&nbsp;diplay&nbsp;that&nbsp;user's&nbsp;information&nbsp;from&nbsp;the&nbsp;Patient&nbsp;table&nbsp;in&nbsp;the&nbsp;MAPSDB&nbsp;database</tt></dd></dl>
+ <dl><dt><a name="-doctors"><strong>doctors</strong></a>()</dt><dd><tt>This&nbsp;function&nbsp;directs&nbsp;the&nbsp;user&nbsp;to&nbsp;the&nbsp;doctors&nbsp;main&nbsp;page.</tt></dd></dl>
+ <dl><dt><a name="-index"><strong>index</strong></a>()</dt><dd><tt>This&nbsp;function&nbsp;directs&nbsp;the&nbsp;user&nbsp;on&nbsp;the&nbsp;index&nbsp;page&nbsp;of&nbsp;the&nbsp;site.</tt></dd></dl>
+ <dl><dt><a name="-patient_book"><strong>patient_book</strong></a>()</dt><dd><tt>This&nbsp;function&nbsp;handles&nbsp;the&nbsp;patient&nbsp;booking,&nbsp;it&nbsp;has&nbsp;a&nbsp;POST&nbsp;method&nbsp;that&nbsp;requires&nbsp;the&nbsp;user&nbsp;to&nbsp;enter&nbsp;a&nbsp;patient&nbsp;email.<br>
+The&nbsp;user&nbsp;is&nbsp;then&nbsp;prompted&nbsp;to&nbsp;enter&nbsp;the&nbsp;doctor&nbsp;they&nbsp;with&nbsp;to&nbsp;book&nbsp;their&nbsp;appointment&nbsp;with.</tt></dd></dl>
+ <dl><dt><a name="-patient_book_app"><strong>patient_book_app</strong></a>()</dt><dd><tt>This&nbsp;function&nbsp;directs&nbsp;the&nbsp;user&nbsp;to&nbsp;the&nbsp;appointment&nbsp;booking&nbsp;page&nbsp;where&nbsp;the&nbsp;patients&nbsp;booking&nbsp;is&nbsp;finalised&nbsp;and&nbsp;placed<br>
+in&nbsp;the&nbsp;primary&nbsp;calendar&nbsp;and&nbsp;the&nbsp;cloud&nbsp;database.&nbsp;It&nbsp;checks&nbsp;the&nbsp;doctors&nbsp;available&nbsp;time&nbsp;slots&nbsp;from&nbsp;the&nbsp;doctors&nbsp;calendar.<br>
+and&nbsp;make&nbsp;appointment&nbsp;booking</tt></dd></dl>
+ <dl><dt><a name="-patient_cancel"><strong>patient_cancel</strong></a>()</dt><dd><tt>This&nbsp;function&nbsp;directs&nbsp;the&nbsp;user&nbsp;to&nbsp;the&nbsp;patient&nbsp;cancel&nbsp;appointment&nbsp;page&nbsp;where&nbsp;the&nbsp;patient&nbsp;can&nbsp;enter&nbsp;their&nbsp;email&nbsp;and&nbsp;then<br>
+redirects&nbsp;them&nbsp;to&nbsp;the&nbsp;cancel/select_appointment&nbsp;page.</tt></dd></dl>
+ <dl><dt><a name="-patient_cancel_app"><strong>patient_cancel_app</strong></a>()</dt><dd><tt>This&nbsp;function&nbsp;uses&nbsp;the&nbsp;previously&nbsp;input&nbsp;email&nbsp;from&nbsp;the&nbsp;patients/cancel&nbsp;page&nbsp;to&nbsp;check&nbsp;for&nbsp;all&nbsp;upcoming&nbsp;appointments&nbsp;for&nbsp;the&nbsp;patient&nbsp;and&nbsp;display&nbsp;them<br>
+The&nbsp;selected&nbsp;appointment&nbsp;will&nbsp;be&nbsp;removed&nbsp;from&nbsp;the&nbsp;primary&nbsp;calender.</tt></dd></dl>
+ <dl><dt><a name="-patient_reg"><strong>patient_reg</strong></a>()</dt><dd><tt>This&nbsp;function&nbsp;directs&nbsp;the&nbsp;user&nbsp;to&nbsp;the&nbsp;register&nbsp;page&nbsp;of&nbsp;the&nbsp;site.</tt></dd></dl>
+ <dl><dt><a name="-patients"><strong>patients</strong></a>()</dt><dd><tt>This&nbsp;function&nbsp;directs&nbsp;the&nbsp;user&nbsp;to&nbsp;the&nbsp;patients&nbsp;page&nbsp;of&nbsp;the&nbsp;site.</tt></dd></dl>
 </td></tr></table><p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#55aa55">
@@ -38,5 +77,11 @@
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
 <td width="100%"><strong>app</strong> = &lt;Flask 'maps'&gt;<br>
-<strong>bootstrap</strong> = &lt;flask_bootstrap.Bootstrap object&gt;</td></tr></table>
+<strong>bootstrap</strong> = &lt;flask_bootstrap.Bootstrap object&gt;<br>
+<strong>db</strong> = &lt;SQLAlchemy engine=mysql://root:***@35.189.1.72/mapsdb?charset=utf8&gt;<br>
+<strong>doctor_not_available</strong> = 'The doctor you have selected currently does not have available sessions.'<br>
+<strong>ma</strong> = &lt;flask_marshmallow.Marshmallow object&gt;<br>
+<strong>no_booking_found</strong> = 'You have not made any bookings yet.'<br>
+<strong>request</strong> = &lt;LocalProxy unbound&gt;<br>
+<strong>user_not_exist</strong> = 'The user does not exist in the database. Please try again.'</td></tr></table>
 </body></html>

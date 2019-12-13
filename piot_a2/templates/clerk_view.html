@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% include "header.html" ignore missing %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+    <title>
+        {% block title %}Patients{% endblock %}
+    </title>
+    {% block head %}
+    {% endblock %}
+</head>
+
+<body>
+    {% block content %}
+
+    {% include "nav.html" ignore missing %}
+    <div class="container-fluid contentsGap">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-2">
+                <span class="fLetterEffect">D</span><span class="headingFont">octor</span><br />
+                <span class="fLetterEffect">&emsp;&emsp;&emsp;&emsp;D</span><span class="headingFont">ata</span><br />
+                <span class="fLetterEffect">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;A</span>nalysis<span
+                    class="headingFont"></span><br />
+            </div>
+            <div class="col-md-4 col-md-offset-2" style="background-color: white">
+                <canvas id="statChart" height="400px" width="600px"></canvas>
+                
+                <form class="form-inline" action="{{ url_for('clerk_view') }}" method="POST">
+                    <button type="submit" name="clerk_search_action" value="back" class="btn btn-lg smBtnLayout" style="color:#428bca;"
+                        formnovalidate>Main</button>
+                </form>
+            </div>
+        </div>
+        {% endblock %}
+
+        <div id="footer">
+            {% include "footer.html" ignore missing %}
+            {% block footer %}
+            {% endblock %}
+        </div>
+    </div>
+</body>
+{% block scripts %}
+
+<script>
+    // script for bar / horizontal bar chart
+    let barChart = document.getElementById('statChart').getContext('2d');
+
+    var doctors = {{ doctors|safe }}
+    var pastAppData = {{ pastAppData|safe }}
+
+    var dataLabel = doctors;
+    var data1 = pastAppData;
+    var bgColor = ['red', 'orange', 'green', 'blue', 'yellow'];
+    var titleText = 'Patients seen in the Past Week';
+
+    let myBarChart = new Chart(barChart, {
+        type: 'bar',
+        data: {
+            labels: dataLabel,
+            datasets: [{
+                label: 'Patients seen',
+                data: data1,
+                borderColor: 'green',
+                backgroundColor: bgColor,
+            }],
+        },
+        options: {
+            // responsive: true,
+            title: {
+                display: true,
+                text: titleText,
+                fontColor: "Green",
+                fontSize: 25,
+            },
+            legend: {
+                display: true,
+                position: 'right',
+                labels: {
+                    fontColor: '#000'
+                }
+            },
+            layout: {
+                padding: {
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    top: 50
+                }
+            },
+            scales: {
+                xAxes: [{
+                    display: true,
+                    ticks: {
+                        fontColor: "Blue",
+                        autoSkip: true,
+                        maxRotation: 45,
+                        minRotation: 45,
+                        maxTicksLimit: 21
+                    },
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Doctors'
+                    }
+                }],
+                yAxes: [{
+                    display: true,
+                    ticks: {
+                        fontColor: "Blue",
+                        suggestedMin: 0,
+                        suggestedMax: 15,
+                        stepSize: 5,
+                    },
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Appointments'
+                    }
+                }]
+            },
+            animation: {
+                duration: 0
+            },
+            tooltips: {
+                enabled: true
+            }
+        }
+    });
+</script>
+
+{% endblock %}
+
+</html>

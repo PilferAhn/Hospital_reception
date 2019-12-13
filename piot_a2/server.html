@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module server</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>server</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/pi/Assignment2/piot_a2/server.py">/home/pi/Assignment2/piot_a2/server.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="concurrent.futures.html">concurrent.futures</a><br>
+<a href="grpc.html">grpc</a><br>
+</td><td width="25%" valign=top><a href="iot_pb2.html">iot_pb2</a><br>
+<a href="iot_pb2_grpc.html">iot_pb2_grpc</a><br>
+</td><td width="25%" valign=top><a href="os.html">os</a><br>
+<a href="time.html">time</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="iot_pb2_grpc.html#PatientRecogniserServicer">iot_pb2_grpc.PatientRecogniserServicer</a>(<a href="builtins.html#object">builtins.object</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="server.html#PatientVerifier">PatientVerifier</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="PatientVerifier">class <strong>PatientVerifier</strong></a>(<a href="iot_pb2_grpc.html#PatientRecogniserServicer">iot_pb2_grpc.PatientRecogniserServicer</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Defines&nbsp;functions&nbsp;to&nbsp;connect&nbsp;both&nbsp;clients&nbsp;and&nbsp;server.<br>
+unary-unary&nbsp;approach&nbsp;has&nbsp;been&nbsp;applied.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="server.html#PatientVerifier">PatientVerifier</a></dd>
+<dd><a href="iot_pb2_grpc.html#PatientRecogniserServicer">iot_pb2_grpc.PatientRecogniserServicer</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="PatientVerifier-VerifyPatient"><strong>VerifyPatient</strong></a>(self, request, context)</dt><dd><tt>Check&nbsp;if&nbsp;the&nbsp;patient&nbsp;is&nbsp;valid&nbsp;or&nbsp;unknown&nbsp;person&nbsp;and&nbsp;pass&nbsp;the&nbsp;data&nbsp;to&nbsp;the&nbsp;clerk&nbsp;(server&nbsp;end)</tt></dd></dl>
+
+<dl><dt><a name="PatientVerifier-__init__"><strong>__init__</strong></a>(self, client_name)</dt><dd><tt>Constructor&nbsp;to&nbsp;get&nbsp;patient&nbsp;name&nbsp;from&nbsp;client&nbsp;1&nbsp;(patient&nbsp;on&nbsp;local&nbsp;end)&nbsp;<br>
+to&nbsp;the&nbsp;server&nbsp;then&nbsp;pass&nbsp;the&nbsp;name&nbsp;to&nbsp;client&nbsp;2&nbsp;(doctor&nbsp;on&nbsp;server&nbsp;side)</tt></dd></dl>
+
+<dl><dt><a name="PatientVerifier-notifyDoctor"><strong>notifyDoctor</strong></a>(self, request, context)</dt><dd><tt>Notify&nbsp;the&nbsp;information&nbsp;of&nbsp;the&nbsp;patient&nbsp;to&nbsp;the&nbsp;doctor&nbsp;end&nbsp;(another&nbsp;client)</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="iot_pb2_grpc.html#PatientRecogniserServicer">iot_pb2_grpc.PatientRecogniserServicer</a>:<br>
+<dl><dt><a name="PatientVerifier-clearHistory"><strong>clearHistory</strong></a>(self, request, context)</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="iot_pb2_grpc.html#PatientRecogniserServicer">iot_pb2_grpc.PatientRecogniserServicer</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-serve"><strong>serve</strong></a>()</dt><dd><tt>Run&nbsp;gRPC&nbsp;for&nbsp;client-server&nbsp;communications</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>client_name</strong> = ''<br>
+<strong>green</strong> = (0, 255, 0)<br>
+<strong>red</strong> = (255, 0, 0)<br>
+<strong>sense</strong> = &lt;sense_hat.sense_hat.SenseHat object&gt;</td></tr></table>
+</body></html>

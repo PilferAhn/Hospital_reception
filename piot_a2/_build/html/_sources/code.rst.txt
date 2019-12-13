@@ -3,5 +3,50 @@ Code docs
 
 .. module:: maps
 
-.. autoclass:: MAPS
+.. module:: Utility
+
+.. module:: PatientAPI
+.. autoclass:: Patient
     :members:
+.. autoclass:: PatientSchema
+    :members:
+
+.. module:: MapsDB
+
+.. module:: GCalenderAPI
+
+.. module:: DoctorAPI
+.. autoclass:: Doctor
+    :members:
+.. autoclass:: DoctorSchema
+    :members:
+
+.. module:: AssistantPi
+
+.. module:: AppointmentAPI
+.. autoclass:: Appointment
+    :members:
+.. autoclass:: AppointmentSchema
+    :members:
+
+.. module:: client
+
+.. module:: client2
+
+.. module:: encode
+
+.. module:: iot_pb2
+
+.. module:: iot_pb2_grpc
+.. autoclass:: PatientRecogniserStub
+    :members:
+.. autoclass:: PatientRecogniserServicer
+
+.. module:: recogniser
+
+.. module:: record
+
+.. module:: server
+.. autoclass:: PatientVerifier
+    :members:
+

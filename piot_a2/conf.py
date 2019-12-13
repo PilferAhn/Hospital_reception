@@ -20,8 +20,8 @@ sys.path.insert(0, os.path.abspath('.'))
 # -- Project information -----------------------------------------------------
 
 project = 'MAPS'
-copyright = '2018, Allen; Alex; Jay; Jimin'
-author = 'Allen; Alex; Jay; Jimin'
+copyright = '2018, Allen Cho, Alex Ryland, Jay Ang, Jimin Ahn'
+author = 'Allen Cho, Alex Ryland, Jay Ang, Jimin Ahn'
 
 # The short X.Y version
 version = ''
@@ -63,11 +63,11 @@ language = None
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
-# This pattern also affects html_static_path and html_extra_path .
+# This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 # The name of the Pygments (syntax highlighting) style to use.
-pygments_style = 'sphinx'
+pygments_style = None
 
 
 # -- Options for HTML output -------------------------------------------------
@@ -76,6 +76,9 @@ pygments_style = 'sphinx'
 # a list of builtin themes.
 #
 html_theme = 'bizstyle'
+html_theme_options = {
+    "rightsidebar": "true"
+}
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -130,7 +133,7 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
     (master_doc, 'MAPS.tex', 'MAPS Documentation',
-     'Allen; Alex; Jay; Jimin', 'manual'),
+     'Allen Cho, Alex Ryland, Jay Ang, Jimin Ahn', 'manual'),
 ]
 
 
@@ -154,6 +157,24 @@ texinfo_documents = [
      author, 'MAPS', 'One line description of project.',
      'Miscellaneous'),
 ]
+
+
+# -- Options for Epub output -------------------------------------------------
+
+# Bibliographic Dublin Core info.
+epub_title = project
+
+# The unique identifier of the text. This can be a ISBN number
+# or the project homepage.
+#
+# epub_identifier = ''
+
+# A unique identification for the text.
+#
+# epub_uid = ''
+
+# A list of files that should not be packed into the epub file.
+epub_exclude_files = ['search.html']
 
 
 # -- Extension configuration -------------------------------------------------

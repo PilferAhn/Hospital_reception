@@ -2,19 +2,29 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-2 col-md-offset-2" style="text-align: center;">
-            <a style="color:whitesmoke; font-size: 25px;" href="{{ url_for('index') }}">Home</a>
+            <a style="color:whitesmoke; font-size: 35px;" href="{{ url_for('index') }}">Home</a>
         </div>
         <div class="col-md-2" style="text-align: center;">
-            <a style="color:whitesmoke; font-size: 25px;" href="{{ url_for('patients') }}">Patients</a>
+            <a style="color:whitesmoke; font-size: 35px;" href="{{ url_for('patients') }}">Patients</a><br />
+            <a style="color:whitesmoke; font-size: 20px;" href="{{ url_for('patient_reg') }}">Registration</a><br />
+            <a style="color:whitesmoke; font-size: 20px;" href="{{ url_for('patient_book') }}">Booking</a><br />
+            <a style="color:whitesmoke; font-size: 20px;" href="{{ url_for('patient_cancel') }}">Cancellation</a>
         </div>
         <div class="col-md-2" style="text-align: center;">
-            <a style="color:whitesmoke; font-size: 25px;" href="{{ url_for('doctors') }}">Doctors</a>
+            <a style="color:whitesmoke; font-size: 35px;" href="{{ url_for('doctors') }}">Doctors</a><br />
+            <a style="color:whitesmoke; font-size: 20px;" href="{{ url_for('doctor_reg') }}">Registration</a><br />
+            <a style="color:whitesmoke; font-size: 20px;" href="{{ url_for('doctor_book_auth') }}">Schedule</a><br />
+            <a style="color:whitesmoke; font-size: 20px;" href="{{ url_for('doctor_search') }}">Medical Notes</a>
         </div>
         <div class="col-md-2" style="text-align: center;">
-            <a style="color:whitesmoke; font-size: 25px;" href="{{ url_for('clerks') }}">Clerks</a>
+            <a style="color:whitesmoke; font-size: 35px;" href="{{ url_for('clerks') }}">Clerks</a><br />
+            <a style="color:whitesmoke; font-size: 20px;" href="{{ url_for('clerk_book') }}">Booking</a><br />
+            <a style="color:whitesmoke; font-size: 20px;" href="{{ url_for('clerk_cancel') }}">Cancellation</a><br />
+            <a style="color:whitesmoke; font-size: 20px;" href="{{ url_for('clerk_list') }}">Appointment List</a><br />
+            <a style="color:whitesmoke; font-size: 20px;" href="">Data Analysis</a>
         </div>
-    </div><br /><br />
-    <div class="row" style="margin-top: 20px; text-align: center;">
+    </div>
+    <div class="row" style="text-align: center;">
         <div class="col-md-6 col-md-offset-3">
                 Copyright &copy;
                 {% block scripts %}

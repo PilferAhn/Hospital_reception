@@ -155,3 +155,32 @@ body {
     color: red;
     font-size: 20px;
 }
+
+
+
+
+
+/* HTML Table design */
+
+#dataTable {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#dataTable td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#dataTable tr:nth-child(even){background-color: #d0e3ed;color: black;}
+
+#dataTable tr:hover {background-color: #ddd;}
+
+#dataTable th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #b7dcf7;
+    color: white;
+}
