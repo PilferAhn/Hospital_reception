@@ -1,7 +1,7 @@
 # Raspberry Pi3 - IOT Project
 
 
-Assignment Descriptions
+Descriptions
 - APIs
     - AppointmentAPI.py
         - Help generate an appointment by everyone
